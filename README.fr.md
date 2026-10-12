@@ -4,7 +4,7 @@
 
 **Recevez vos déploiements, sauvegardes et alertes serveur [Coolify](https://coolify.io) dans vos salons [Root](https://rootapp.com), comme avec l'intégration Discord.**
 
-[![CI](https://github.com/OWNER/root-coolify-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/root-coolify-notifier/actions/workflows/ci.yml)
+[![CI](https://github.com/RonflexAzOg/root-coolify-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/RonflexAzOg/root-coolify-notifier/actions/workflows/ci.yml)
 [![Licence : MIT](https://img.shields.io/badge/Licence-MIT-blue.svg)](LICENSE)
 
 [English](README.md) · Français
@@ -39,7 +39,7 @@ Prérequis : une instance Coolify (v4) et une communauté Root dans laquelle vou
 
 ### 1. Déployer le relais sur Coolify (2 min)
 
-Dans Coolify : **New Resource → Public Repository** → `https://github.com/OWNER/root-coolify-notifier`
+Dans Coolify : **New Resource → Public Repository** → `https://github.com/RonflexAzOg/root-coolify-notifier`
 
 | Paramètre | Valeur |
 |---|---|

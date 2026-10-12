@@ -4,7 +4,7 @@
 
 **Get your [Coolify](https://coolify.io) deployments, backups and server alerts in your [Root](https://rootapp.com) channels, just like the Discord integration.**
 
-[![CI](https://github.com/OWNER/root-coolify-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/root-coolify-notifier/actions/workflows/ci.yml)
+[![CI](https://github.com/RonflexAzOg/root-coolify-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/RonflexAzOg/root-coolify-notifier/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 English · [Français](README.fr.md)
@@ -39,7 +39,7 @@ You need: a Coolify instance (v4) and a Root community where you can manage apps
 
 ### 1. Deploy the relay on Coolify (2 min)
 
-In Coolify: **New Resource → Public Repository** → `https://github.com/OWNER/root-coolify-notifier`
+In Coolify: **New Resource → Public Repository** → `https://github.com/RonflexAzOg/root-coolify-notifier`
 
 | Setting | Value |
 |---|---|

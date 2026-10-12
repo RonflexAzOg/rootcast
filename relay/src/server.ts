@@ -214,7 +214,7 @@ export function createRelay(config: RelayConfig): Relay {
         name: "root-coolify-notifier relay",
         version: VERSION,
         open: config.accessKey === "",
-        docs: "https://github.com/OWNER/root-coolify-notifier",
+        docs: "https://github.com/RonflexAzOg/root-coolify-notifier",
       });
     }
     const hookMatch = /^\/v1\/hooks\/([^/]+)$/.exec(path);

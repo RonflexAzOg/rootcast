@@ -117,7 +117,7 @@ export const REPLIES = {
         `\`${prefix} lang <en|fr>\`: change the language of notifications`,
         `\`${prefix} rotate\`: generate a new webhook URL (if the old one leaked)`,
         `\`${prefix} remove\`: stop notifications in this channel`,
-        "Guide: https://github.com/OWNER/root-coolify-notifier",
+        "Guide: https://github.com/RonflexAzOg/root-coolify-notifier",
       ].join("\n"),
     notAdmin:
       "Only the bot admins can do that. They are chosen in the bot settings (community settings, Apps).",
@@ -172,7 +172,7 @@ export const REPLIES = {
         `\`${prefix} lang <en|fr>\` : changer la langue des notifications`,
         `\`${prefix} rotate\` : générer une nouvelle URL de webhook (en cas de fuite)`,
         `\`${prefix} remove\` : arrêter les notifications dans ce salon`,
-        "Guide : https://github.com/OWNER/root-coolify-notifier",
+        "Guide : https://github.com/RonflexAzOg/root-coolify-notifier",
       ].join("\n"),
     notAdmin:
       "Seuls les administrateurs du bot peuvent faire cela. Ils se choisissent dans les paramètres du bot (paramètres de la communauté, Apps).",
