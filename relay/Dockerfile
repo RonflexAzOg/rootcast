@@ -1,6 +1,6 @@
 # Zero runtime dependencies: Node runs the TypeScript sources directly
 # (type stripping) and stores data with the built-in node:sqlite module.
-FROM node:24-alpine
+FROM node:26-alpine
 
 ENV NODE_ENV=production \
     PORT=8080 \
