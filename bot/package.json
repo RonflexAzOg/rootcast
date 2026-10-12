@@ -22,5 +22,10 @@
     "clean": "node clean.js",
     "bot": "rootsdk start devhost",
     "package": "node scripts/package.mjs"
+  },
+  "overrides": {
+    "tar": "^7.5.22",
+    "@tootallnate/once": "^2.0.1",
+    "uuid": "^11.1.1"
   }
 }
