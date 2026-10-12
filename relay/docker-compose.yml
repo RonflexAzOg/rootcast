@@ -1,0 +1,26 @@
+# Deploy on Coolify: New Resource → Docker Compose → paste this file
+# (or point Coolify at this repository with base directory /relay).
+# Coolify generates the public HTTPS domain from SERVICE_FQDN_RELAY_8080.
+services:
+  relay:
+    build: .
+    # Or use the published image instead of building:
+    # image: ghcr.io/OWNER/root-coolify-notifier-relay:latest
+    restart: unless-stopped
+    environment:
+      - SERVICE_FQDN_RELAY_8080
+      - PORT=8080
+      - DATA_DIR=/data
+      - TRUST_PROXY=true
+      # Optional: set a key to keep your relay private (bots then use /coolify setup <url> <key>).
+      - RELAY_ACCESS_KEY=${RELAY_ACCESS_KEY:-}
+    volumes:
+      - relay-data:/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  relay-data:

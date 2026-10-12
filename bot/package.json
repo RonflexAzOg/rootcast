@@ -1,0 +1,26 @@
+{
+  "name": "@root-coolify-notifier/bot",
+  "version": "1.0.0",
+  "description": "Root bot that posts Coolify notifications (deployments, backups, servers…) in your channels",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "@rootsdk/server-bot": "^0.21.3"
+  },
+  "devDependencies": {
+    "@rootsdk/dev-tools": "^0.21.3",
+    "@types/node": "^22.15.0",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test": "tsc && node --test \"test/**/*.test.mjs\"",
+    "clean": "node clean.js",
+    "bot": "rootsdk start devhost",
+    "package": "node scripts/package.mjs"
+  }
+}

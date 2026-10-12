@@ -1,0 +1,38 @@
+{
+  "id": "REPLACE_WITH_YOUR_BOT_ID",
+  "version": "1.0.0",
+  "package": {
+    "server": {
+      "launch": "dist/main.js",
+      "deploy": ["dist"],
+      "nodeModules": ["node_modules"]
+    }
+  },
+  "permissions": {
+    "channel": {
+      "createMessage": true
+    }
+  },
+  "settings": {
+    "groups": [
+      {
+        "key": "general",
+        "title": "General",
+        "items": [
+          {
+            "key": "admins",
+            "title": "Bot admins",
+            "description": "Roles and members allowed to connect channels to Coolify with /coolify setup.",
+            "required": true,
+            "confirmation": "Save",
+            "roleOrMember": {
+              "selectBehavior": "roleMultiAndUserMulti",
+              "userIds": [],
+              "communityRoleIds": []
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

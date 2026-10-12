@@ -1,0 +1,29 @@
+name: Bug report
+description: Something doesn't work as expected
+labels: [bug]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options: [Bot (in Root), Relay, Documentation]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What you did, what you expected, what you got. Include the output of `/coolify status` if relevant.
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relay logs
+      description: From Coolify → your relay → Logs. Remove anything sensitive. Never paste your webhook URL.
+      render: shell
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: "Coolify 4.0.x, relay 1.0.0"
