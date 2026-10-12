@@ -1,10 +1,10 @@
 <div align="center">
 
-# Coolify notifications for Root
+# Rootcast
 
 **Get your [Coolify](https://coolify.io) deployments, backups and server alerts in your [Root](https://rootapp.com) channels, just like the Discord integration.**
 
-[![CI](https://github.com/RonflexAzOg/root-coolify-notifier/actions/workflows/ci.yml/badge.svg)](https://github.com/RonflexAzOg/root-coolify-notifier/actions/workflows/ci.yml)
+[![CI](https://github.com/RonflexAzOg/rootcast/actions/workflows/ci.yml/badge.svg)](https://github.com/RonflexAzOg/rootcast/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 English · [Français](README.fr.md)
@@ -39,7 +39,7 @@ You need: a Coolify instance (v4) and a Root community where you can manage apps
 
 ### 1. Deploy the relay on Coolify (2 min)
 
-In Coolify: **New Resource → Public Repository** → `https://github.com/RonflexAzOg/root-coolify-notifier`
+In Coolify: **New Resource → Public Repository** → `https://github.com/RonflexAzOg/rootcast`
 
 | Setting | Value |
 |---|---|
@@ -58,7 +58,7 @@ Check it works: `https://your-relay-domain/healthz` returns `{"status":"ok"}`.
 
 ### 2. Add the bot to your Root community
 
-Install **Coolify Notifications** from the Root store. During installation, choose the **Bot admins**: the roles or members allowed to configure it.
+Install **Rootcast** from the Root store. During installation, choose the **Bot admins**: the roles or members allowed to configure it.
 
 ### 3. Connect a channel
 

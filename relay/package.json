@@ -1,5 +1,5 @@
 {
-  "name": "@root-coolify-notifier/relay",
+  "name": "@rootcast/relay",
   "version": "1.0.0",
   "description": "Tiny webhook relay between Coolify and the Root bot. Zero runtime dependencies.",
   "license": "MIT",

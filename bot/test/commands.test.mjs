@@ -53,7 +53,7 @@ describe("normalizeRelayUrl", () => {
 describe("hook id", () => {
   test("matches the relay's test vector", () => {
     // Same vector is asserted in relay/test/relay.test.ts.
-    assert.equal(deriveHookId("test-secret-0123456789abcdefghijklmnop"), "U7KxR6SHd6k3MJWFJ3W1CgfOxw8wv-AxIV_RPcUA2qU");
+    assert.equal(deriveHookId("test-secret-0123456789abcdefghijklmnop"), "rHrtq5PJEe3lzSwjRVxyxwV-_FLVz3fxvITJLqU42xs");
   });
   test("secrets are 43 url-safe characters and unique", () => {
     const a = newSecret();

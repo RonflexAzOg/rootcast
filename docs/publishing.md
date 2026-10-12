@@ -5,7 +5,7 @@ For maintainers, or anyone publishing a fork under their own name. Users of the 
 ## Once
 
 1. Install the Root desktop client and create an account.
-2. Open the [Root Developer Portal](https://dev.rootapp.com), select **New bot**, name it (for example *Coolify Notifications*).
+2. Open the [Root Developer Portal](https://dev.rootapp.com), select **New bot**, name it *Rootcast*.
 3. Copy the bot ID into `bot/root-manifest.json` (`"id"`).
 
 ## Test locally
@@ -27,8 +27,8 @@ For maintainers, or anyone publishing a fork under their own name. Users of the 
 ## Release
 
 1. Bump `version` in `bot/root-manifest.json` and `bot/package.json`, update `CHANGELOG.md`.
-2. `cd bot && npm run package`. This builds and packages with production dependencies only (Root rejects packages over 100 MiB). Output: `bot/root-coolify-notifier.pkg`.
-3. Upload: `npx rootsdk upload package -f root-coolify-notifier.pkg -a <token from the Developer Portal>`.
+2. `cd bot && npm run package`. This builds and packages with production dependencies only (Root rejects packages over 100 MiB). Output: `bot/rootcast.pkg`.
+3. Upload: `npx rootsdk upload package -f rootcast.pkg -a <token from the Developer Portal>`.
 4. Publish the new version to the Root store from the Developer Portal.
 5. Tag the repository `bot-vX.Y.Z`.
 

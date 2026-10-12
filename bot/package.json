@@ -1,7 +1,7 @@
 {
-  "name": "@root-coolify-notifier/bot",
+  "name": "@rootcast/bot",
   "version": "1.0.0",
-  "description": "Root bot that posts Coolify notifications (deployments, backups, servers…) in your channels",
+  "description": "Rootcast: Root bot that posts Coolify notifications (deployments, backups, servers…) in your channels",
   "license": "MIT",
   "private": true,
   "engines": {

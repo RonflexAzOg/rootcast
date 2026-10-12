@@ -110,14 +110,14 @@ export const REPLIES = {
   en: {
     help: (prefix: string) =>
       [
-        "**Coolify notifications for Root**",
+        "**Rootcast** · Coolify notifications for Root",
         `\`${prefix} setup <relay-url> [relay-key]\`: send Coolify notifications to this channel`,
         `\`${prefix} status\`: show the configuration of this channel`,
         `\`${prefix} test\`: post a sample notification`,
         `\`${prefix} lang <en|fr>\`: change the language of notifications`,
         `\`${prefix} rotate\`: generate a new webhook URL (if the old one leaked)`,
         `\`${prefix} remove\`: stop notifications in this channel`,
-        "Guide: https://github.com/RonflexAzOg/root-coolify-notifier",
+        "Guide: https://github.com/RonflexAzOg/rootcast",
       ].join("\n"),
     notAdmin:
       "Only the bot admins can do that. They are chosen in the bot settings (community settings, Apps).",
@@ -146,7 +146,7 @@ export const REPLIES = {
     langUsage: (prefix: string) => `Usage: \`${prefix} lang en\` or \`${prefix} lang fr\``,
     status: (s: { relay: string; webhookUrl: string; state: string; lastEvent: string; lang: string }) =>
       [
-        "**Coolify notifications: status**",
+        "**Rootcast: status**",
         `Relay: ${s.relay}`,
         `Webhook URL: \`${s.webhookUrl}\``,
         `Connection: ${s.state}`,
@@ -165,14 +165,14 @@ export const REPLIES = {
   fr: {
     help: (prefix: string) =>
       [
-        "**Notifications Coolify pour Root**",
+        "**Rootcast** · Notifications Coolify pour Root",
         `\`${prefix} setup <url-du-relais> [clé-du-relais]\` : envoyer les notifications Coolify dans ce salon`,
         `\`${prefix} status\` : afficher la configuration du salon`,
         `\`${prefix} test\` : publier une notification d'exemple`,
         `\`${prefix} lang <en|fr>\` : changer la langue des notifications`,
         `\`${prefix} rotate\` : générer une nouvelle URL de webhook (en cas de fuite)`,
         `\`${prefix} remove\` : arrêter les notifications dans ce salon`,
-        "Guide : https://github.com/RonflexAzOg/root-coolify-notifier",
+        "Guide : https://github.com/RonflexAzOg/rootcast",
       ].join("\n"),
     notAdmin:
       "Seuls les administrateurs du bot peuvent faire cela. Ils se choisissent dans les paramètres du bot (paramètres de la communauté, Apps).",
@@ -201,7 +201,7 @@ export const REPLIES = {
     langUsage: (prefix: string) => `Utilisation : \`${prefix} lang en\` ou \`${prefix} lang fr\``,
     status: (s: { relay: string; webhookUrl: string; state: string; lastEvent: string; lang: string }) =>
       [
-        "**Notifications Coolify : état**",
+        "**Rootcast : état**",
         `Relais : ${s.relay}`,
         `URL du webhook : \`${s.webhookUrl}\``,
         `Connexion : ${s.state}`,

@@ -14,13 +14,13 @@ Root bots can make outbound HTTP requests but have no public endpoint, hence the
 For each connected channel the bot generates a **secret**: 32 random bytes, base64url encoded (43 chars).
 
 ```
-hookId = base64url( sha256( "rcn:hook:v1:" + secret ) )      // 43 chars
+hookId = base64url( sha256( "rootcast:hook:v1:" + secret ) )      // 43 chars
 webhook URL = <relay>/v1/hooks/<hookId>
 ```
 
 - Coolify only knows the webhook URL: it can post events, not read them.
 - The bot authenticates polls with the secret; the relay derives the hook ID from it, so the relay never stores secrets.
-- Test vector: secret `test-secret-0123456789abcdefghijklmnop` → hookId `U7KxR6SHd6k3MJWFJ3W1CgfOxw8wv-AxIV_RPcUA2qU`.
+- Test vector: secret `test-secret-0123456789abcdefghijklmnop` → hookId `rHrtq5PJEe3lzSwjRVxyxwV-_FLVz3fxvITJLqU42xs`.
 
 ## HTTP API
 

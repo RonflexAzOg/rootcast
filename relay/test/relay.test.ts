@@ -29,7 +29,7 @@ function ingest(base: string, hookId: string, body: unknown) {
 describe("hook id", () => {
   test("matches the shared test vector", () => {
     // Same vector is asserted in bot/test/hook-id.test.mjs.
-    assert.equal(deriveHookId("test-secret-0123456789abcdefghijklmnop"), "U7KxR6SHd6k3MJWFJ3W1CgfOxw8wv-AxIV_RPcUA2qU");
+    assert.equal(deriveHookId("test-secret-0123456789abcdefghijklmnop"), "rHrtq5PJEe3lzSwjRVxyxwV-_FLVz3fxvITJLqU42xs");
   });
 });
 

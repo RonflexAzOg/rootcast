@@ -211,10 +211,10 @@ export function createRelay(config: RelayConfig): Relay {
     }
     if (path === "/" && method === "GET") {
       return send(res, 200, {
-        name: "root-coolify-notifier relay",
+        name: "Rootcast relay",
         version: VERSION,
         open: config.accessKey === "",
-        docs: "https://github.com/RonflexAzOg/root-coolify-notifier",
+        docs: "https://github.com/RonflexAzOg/rootcast",
       });
     }
     const hookMatch = /^\/v1\/hooks\/([^/]+)$/.exec(path);

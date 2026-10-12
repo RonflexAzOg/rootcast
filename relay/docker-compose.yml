@@ -5,7 +5,7 @@ services:
   relay:
     build: .
     # Or use the published image instead of building:
-    # image: ghcr.io/ronflexazog/root-coolify-notifier-relay:latest
+    # image: ghcr.io/ronflexazog/rootcast-relay:latest
     restart: unless-stopped
     environment:
       - SERVICE_FQDN_RELAY_8080
