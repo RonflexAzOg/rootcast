@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/rootcast-icon-512.png" alt="" width="96" height="96">
+
 # Rootcast
 
 **Recevez vos déploiements, sauvegardes et alertes serveur [Coolify](https://coolify.io) dans vos salons [Root](https://rootapp.com), comme avec l'intégration Discord.**
@@ -112,6 +114,8 @@ Un seul relais peut servir autant de communautés et de salons que nécessaire.
 - Les commandes qui modifient ou révèlent la configuration sont réservées aux admins du bot : propriétaire de la communauté, membres ayant Gérer les apps, et le paramètre optionnel Bot admins.
 
 Signalez les vulnérabilités en privé : voir [SECURITY.md](SECURITY.md).
+
+Voir aussi la [politique de confidentialité](PRIVACY.md) (en anglais).
 
 ## Contribuer
 

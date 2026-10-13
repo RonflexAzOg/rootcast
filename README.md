@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/rootcast-icon-512.png" alt="" width="96" height="96">
+
 # Rootcast
 
 **Get your [Coolify](https://coolify.io) deployments, backups and server alerts in your [Root](https://rootapp.com) channels, just like the Discord integration.**
@@ -122,6 +124,8 @@ One relay can serve any number of communities and channels. If you run a public 
 - Bot commands that change or reveal configuration are restricted to bot admins: the community owner, members with Manage Apps, and the optional Bot admins setting.
 
 Report vulnerabilities privately: see [SECURITY.md](SECURITY.md).
+
+See also the [privacy policy](PRIVACY.md).
 
 ## Documentation
 
