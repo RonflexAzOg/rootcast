@@ -9,3 +9,4 @@ data/
 .package/
 rootsdk.sqlite3
 .DS_Store
+*.patch
