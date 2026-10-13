@@ -89,7 +89,9 @@ export class ChannelPoller {
       return "skipped";
     }
     this.attempts.set(event.id, tries);
-    const outcome = await postMessage(this.channelId, formatEvent(event.payload, sub.lang));
+    // From the 3rd attempt, fall back to a link-free message in case a URL is what Root rejects.
+    const content = formatEvent(event.payload, sub.lang, { links: tries < 3 });
+    const outcome = await postMessage(this.channelId, content);
     if (outcome !== "retry") this.attempts.delete(event.id);
     if (outcome === "retry") {
       // Let the next round retry this event after a short pause.

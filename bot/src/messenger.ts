@@ -39,9 +39,26 @@ async function createOnce(channelId: string, content: string, replyTo?: string):
           return "retry";
       }
     }
-    console.error("[messenger] unexpected error:", error instanceof Error ? error.message : error);
+    console.error(`[messenger] unexpected error: ${describeError(error)}`);
+    console.error(`[messenger] message was: ${JSON.stringify(content.slice(0, 300))}`);
     return "retry";
   }
+}
+
+/** Everything useful about an unknown error, for the developer log. */
+function describeError(error: unknown): string {
+  if (!(error instanceof Error)) return JSON.stringify(error);
+  const extra: Record<string, unknown> = {};
+  for (const key of Object.getOwnPropertyNames(error)) {
+    if (key !== "stack" && key !== "message") extra[key] = (error as unknown as Record<string, unknown>)[key];
+  }
+  let details = "";
+  try {
+    details = JSON.stringify(extra, (_k, v) => (typeof v === "bigint" ? v.toString() : v));
+  } catch {
+    details = "[unserializable]";
+  }
+  return `${error.constructor?.name ?? error.name}: ${error.message} ${details}`;
 }
 
 /** Posts a message through a single paced queue shared by every channel. */

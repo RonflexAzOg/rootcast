@@ -92,7 +92,12 @@ function subjectOf(p: CoolifyPayload): string | undefined {
   );
 }
 
-export function formatEvent(payload: CoolifyPayload, lang: Lang): string {
+export interface FormatOptions {
+  /** Include links to the app and to Coolify (plain URLs). Default: true. */
+  links?: boolean;
+}
+
+export function formatEvent(payload: CoolifyPayload, lang: Lang, options: FormatOptions = {}): string {
   const event = str(payload.event) ?? "unknown";
   const success = payload.success === true;
   const icon = ICONS[event] ?? (success ? "✅" : "⚠️");
@@ -157,12 +162,14 @@ export function formatEvent(payload: CoolifyPayload, lang: Lang): string {
   const cleanup = str(payload.cleanup_message);
   if (cleanup) add("details", cleanup);
 
-  const links: string[] = [];
-  const appUrl = firstFqdn(payload.preview_fqdn) ?? firstFqdn(payload.fqdn);
-  if (appUrl && success) links.push(`[${label(lang, "openApp")}](${appUrl})`);
-  const coolifyUrl = safeUrl(payload.deployment_url) ?? safeUrl(payload.url);
-  if (coolifyUrl) links.push(`[${label(lang, "openInCoolify")}](${coolifyUrl})`);
-  if (links.length > 0) lines.push(`🔗 ${links.join(" · ")}`);
+  // Plain URLs: Root only accepts Markdown links with root:// URIs (mentions),
+  // and turns plain URLs into clickable links itself.
+  if (options.links !== false) {
+    const appUrl = firstFqdn(payload.preview_fqdn) ?? firstFqdn(payload.fqdn);
+    if (appUrl && success) lines.push(`🌐 ${label(lang, "openApp")}${colon} ${appUrl}`);
+    const coolifyUrl = safeUrl(payload.deployment_url) ?? safeUrl(payload.url);
+    if (coolifyUrl) lines.push(`🔗 ${label(lang, "openInCoolify")}${colon} ${coolifyUrl}`);
+  }
 
   let text = lines.join("\n");
   if (text.length > MAX_MESSAGE_LENGTH) text = `${text.slice(0, MAX_MESSAGE_LENGTH - 1)}…`;

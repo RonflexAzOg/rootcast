@@ -7,12 +7,19 @@ describe("formatEvent", () => {
     const en = formatEvent(SAMPLE_EVENT, "en");
     assert.match(en, /^✅ \*\*Deployment succeeded\*\* · my-app/);
     assert.match(en, /Project: demo \/ production/);
-    assert.match(en, /\[Open app\]\(https:\/\/my-app\.example\.com\/\)/);
-    assert.match(en, /\[Open in Coolify\]\(https:\/\/coolify\.example\.com\//);
+    assert.match(en, /Open app: https:\/\/my-app\.example\.com\//);
+    assert.match(en, /Open in Coolify: https:\/\/coolify\.example\.com\//);
+    assert.doesNotMatch(en, /\]\(/, "no Markdown links: Root only accepts root:// ones");
 
     const fr = formatEvent(SAMPLE_EVENT, "fr");
     assert.match(fr, /Déploiement réussi/);
     assert.match(fr, /Projet : demo \/ production/);
+  });
+
+  test("links can be disabled (fallback when Root rejects a message)", () => {
+    const text = formatEvent(SAMPLE_EVENT, "en", { links: false });
+    assert.doesNotMatch(text, /https?:\/\//);
+    assert.match(text, /Deployment succeeded/);
   });
 
   test("deployment failure shows no app link", () => {
