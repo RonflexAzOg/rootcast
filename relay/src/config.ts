@@ -51,7 +51,7 @@ export function loadConfig(env: NodeJS.ProcessEnv = process.env): RelayConfig {
     throw new Error("RELAY_ACCESS_KEY must be at least 16 characters long (or empty for an open relay)");
   }
   return {
-    port: int(env, "PORT", 8080, 0, 65535),
+    port: int(env, "PORT", 8787, 0, 65535),
     host: env.HOST?.trim() || "0.0.0.0",
     dataDir: env.DATA_DIR?.trim() || "./data",
     maxBodyBytes: int(env, "MAX_BODY_BYTES", 64 * 1024, 1024, 1024 * 1024),

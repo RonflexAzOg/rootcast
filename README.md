@@ -96,7 +96,7 @@ All settings are optional environment variables.
 
 | Variable | Default | Description |
 |---|---|---|
-| `PORT` | `8080` | HTTP port |
+| `PORT` | `8080` in Docker, `8787` otherwise | HTTP port (`8787` avoids the Root devhost, which uses 8080) |
 | `DATA_DIR` | `./data` (`/data` in Docker) | SQLite location, **mount a volume** |
 | `TRUST_PROXY` | `false` | Use `X-Forwarded-For` for rate limiting. Set `true` behind Coolify/Traefik |
 | `RELAY_ACCESS_KEY` | _(empty)_ | Make the relay private: bots must pass it in `/coolify setup <url> <key>`. Min. 16 chars |

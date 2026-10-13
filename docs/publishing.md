@@ -12,14 +12,20 @@ For maintainers, or anyone publishing a fork under their own name. Users of the 
 
 1. In the Developer Portal, generate a `DEV_TOKEN`. Root creates a test community for it.
 2. `cp bot/.env.example bot/.env` and paste the token.
-3. Run a relay: `cd relay && npm run dev` (listens on `http://localhost:8080`).
+3. Run a relay: `cd relay && npm run dev` (listens on `http://127.0.0.1:8787`; port 8080 is taken by the Root devhost).
 4. `cd bot && npm install && npm run build && npm run bot`.
-5. In the test community, type `/coolify setup http://localhost:8080` and post an event:
+5. In the test community, type `/coolify setup http://127.0.0.1:8787` and post an event:
 
    ```bash
    curl -X POST "<webhook URL from the bot>" \
      -H 'content-type: application/json' \
      -d '{"success":true,"event":"test","message":"Hello from curl"}'
+   ```
+
+   On Windows (PowerShell):
+
+   ```powershell
+   Invoke-RestMethod -Method Post -Uri "<webhook URL from the bot>" -ContentType "application/json" -Body '{"success":true,"event":"test","message":"Hello from PowerShell"}'
    ```
 
    You own the test community, so you are a bot admin there.

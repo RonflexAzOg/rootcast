@@ -64,7 +64,8 @@ async function errorMessage(res: Response): Promise<string> {
     const body = (await res.json()) as { message?: string };
     if (body.message) return `HTTP ${res.status}: ${body.message}`;
   } catch {
-    // not JSON
+    // Not JSON: something other than a Rootcast relay answered (wrong URL or port).
+    return `HTTP ${res.status}, this does not look like a Rootcast relay (check the URL and port)`;
   }
   return `HTTP ${res.status}`;
 }
