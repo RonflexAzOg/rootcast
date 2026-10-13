@@ -22,7 +22,7 @@ For maintainers, or anyone publishing a fork under their own name. Users of the 
      -d '{"success":true,"event":"test","message":"Hello from curl"}'
    ```
 
-   Note: the bot admins setting must be filled in the test community first.
+   You own the test community, so you are a bot admin there.
 
 ## Release
 

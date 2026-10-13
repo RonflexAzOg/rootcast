@@ -19,13 +19,37 @@ import { deleteSubscription, getSubscription, patchSubscription, saveSubscriptio
 
 const DEFAULT_LANG: Lang = "en";
 
-type AdminCheck = "yes" | "no" | "unconfigured";
-
-async function checkAdmin(userId: UserGuid): Promise<AdminCheck> {
+/**
+ * A bot admin is any of:
+ * - a member picked in the "Bot admins" setting,
+ * - the community owner,
+ * - a member with a role granting "Manage Apps" or "Full Control"
+ *   (they can install and configure apps anyway).
+ */
+async function isBotAdmin(userId: UserGuid): Promise<boolean> {
   const group = rootServer.globalSettings?.["general"]?.["admins"] as ReadOnlyMemberGroup | undefined;
-  if (!group || typeof group.isMember !== "function") return "unconfigured";
-  if (group.userIds.length === 0 && group.communityRoleIds.length === 0) return "unconfigured";
-  return (await group.isMember({ userId })) ? "yes" : "no";
+  try {
+    if (group && typeof group.isMember === "function" && (await group.isMember({ userId }))) return true;
+  } catch (error) {
+    console.error("[admin] settings check failed:", error instanceof Error ? error.message : error);
+  }
+  try {
+    const community = await rootServer.community.communities.get();
+    if (community.ownerUserId === userId) return true;
+
+    const member = await rootServer.community.communityMembers.get({ userId });
+    if (member.communityRoleIds.length === 0) return false;
+    const memberRoles = new Set<string>(member.communityRoleIds);
+    const roles = await rootServer.community.communityRoles.list();
+    return roles.some(
+      (role) =>
+        memberRoles.has(role.id) &&
+        (role.communityPermission.communityManageApps || role.communityPermission.communityFullControl),
+    );
+  } catch (error) {
+    console.error("[admin] permission check failed:", error instanceof Error ? error.message : error);
+    return false;
+  }
 }
 
 function formatDate(iso: string | undefined | Date, lang: Lang): string {
@@ -67,9 +91,8 @@ async function handle(command: ParsedCommand, evt: ChannelMessageCreatedEvent, p
   }
 
   // Every other command changes or reveals configuration: admins only.
-  const admin = await checkAdmin(evt.userId);
-  if (admin !== "yes") {
-    await reply(admin === "unconfigured" ? r.noAdminsConfigured : r.notAdmin);
+  if (!(await isBotAdmin(evt.userId))) {
+    await reply(r.notAdmin);
     return;
   }
 

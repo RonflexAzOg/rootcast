@@ -81,7 +81,7 @@ At-least-once. The bot saves its cursor in Root's key-value store after each pos
 | File | Role |
 |---|---|
 | `main.ts` | Lifecycle: subscribe to messages, start one poller per stored subscription |
-| `handlers.ts` | `/coolify` commands and admin check (`general.admins` setting) |
+| `handlers.ts` | `/coolify` commands and admin check (owner, Manage Apps roles, `general.admins` setting) |
 | `poller.ts` | Per-channel long-poll loop, exponential backoff, health announcements |
 | `relay-client.ts` | HTTP client with timeouts and typed errors |
 | `messenger.ts` | Single paced queue for posting (Root allows ~5 commands/s) |

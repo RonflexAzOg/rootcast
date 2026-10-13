@@ -22,8 +22,8 @@
           {
             "key": "admins",
             "title": "Bot admins",
-            "description": "Roles and members allowed to connect channels to Coolify with /coolify setup.",
-            "required": true,
+            "description": "Extra roles and members allowed to configure Rootcast. The community owner and members with Manage Apps are always allowed.",
+            "required": false,
             "confirmation": "Save",
             "roleOrMember": {
               "selectBehavior": "roleMultiAndUserMulti",

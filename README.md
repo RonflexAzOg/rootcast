@@ -58,7 +58,7 @@ Check it works: `https://your-relay-domain/healthz` returns `{"status":"ok"}`.
 
 ### 2. Add the bot to your Root community
 
-Install **Rootcast** from the Root store. During installation, choose the **Bot admins**: the roles or members allowed to configure it.
+Install **Rootcast** from the Root store. The community owner and members with the **Manage Apps** permission can configure it. To allow other roles or members, add them to **Bot admins** in the bot settings.
 
 ### 3. Connect a channel
 
@@ -117,7 +117,7 @@ One relay can serve any number of communities and channels. If you run a public 
 - The webhook URL contains `sha256(secret)`. Coolify can **post** with it; only the bot, holding the secret, can **read**.
 - The relay only accepts events for webhooks a bot has registered, stores at most `MAX_EVENTS_PER_HOOK` events for `EVENT_TTL_HOURS`, and deletes them as soon as they are delivered.
 - The relay never logs payloads or secrets.
-- Bot commands that change or reveal configuration are restricted to the bot admins chosen in Root.
+- Bot commands that change or reveal configuration are restricted to bot admins: the community owner, members with Manage Apps, and the optional Bot admins setting.
 
 Report vulnerabilities privately: see [SECURITY.md](SECURITY.md).
 

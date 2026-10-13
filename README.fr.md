@@ -58,7 +58,7 @@ Vérification : `https://votre-domaine-relais/healthz` renvoie `{"status":"ok"}`
 
 ### 2. Ajouter le bot à votre communauté Root
 
-Installez **Rootcast** depuis le store Root. Pendant l'installation, choisissez les **Bot admins** : les rôles ou membres autorisés à le configurer.
+Installez **Rootcast** depuis le store Root. Le propriétaire de la communauté et les membres ayant la permission **Gérer les apps** peuvent le configurer. Pour autoriser d'autres rôles ou membres, ajoutez-les dans **Bot admins** dans les paramètres du bot.
 
 ### 3. Connecter un salon
 
@@ -107,7 +107,7 @@ Un seul relais peut servir autant de communautés et de salons que nécessaire.
 - L'URL du webhook contient `sha256(secret)`. Coolify peut **publier** avec, seul le bot, qui détient le secret, peut **lire**.
 - Le relais n'accepte que les webhooks enregistrés par un bot, conserve au plus `MAX_EVENTS_PER_HOOK` événements pendant `EVENT_TTL_HOURS`, et les supprime dès leur publication.
 - Le relais ne journalise jamais les contenus ni les secrets.
-- Les commandes qui modifient ou révèlent la configuration sont réservées aux admins du bot choisis dans Root.
+- Les commandes qui modifient ou révèlent la configuration sont réservées aux admins du bot : propriétaire de la communauté, membres ayant Gérer les apps, et le paramètre optionnel Bot admins.
 
 Signalez les vulnérabilités en privé : voir [SECURITY.md](SECURITY.md).
 

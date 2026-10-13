@@ -120,9 +120,7 @@ export const REPLIES = {
         "Guide: https://github.com/RonflexAzOg/rootcast",
       ].join("\n"),
     notAdmin:
-      "Only the bot admins can do that. They are chosen in the bot settings (community settings, Apps).",
-    noAdminsConfigured:
-      "No bot admin is configured yet. Pick the roles or members allowed to configure the bot in the bot settings (community settings, Apps).",
+      "Only bot admins can do that: the community owner, members with the Manage Apps permission, or the Bot admins chosen in the bot settings.",
     unknownCommand: (prefix: string) => `Unknown command. Type \`${prefix} help\`.`,
     missingUrl: (prefix: string) => `Usage: \`${prefix} setup https://relay.example.com [relay-key]\``,
     invalidUrl: "The relay URL must start with https:// (http:// is only allowed for localhost).",
@@ -175,9 +173,7 @@ export const REPLIES = {
         "Guide : https://github.com/RonflexAzOg/rootcast",
       ].join("\n"),
     notAdmin:
-      "Seuls les administrateurs du bot peuvent faire cela. Ils se choisissent dans les paramètres du bot (paramètres de la communauté, Apps).",
-    noAdminsConfigured:
-      "Aucun administrateur du bot n'est configuré. Choisissez les rôles ou membres autorisés dans les paramètres du bot (paramètres de la communauté, Apps).",
+      "Seuls les admins du bot peuvent faire cela : le propriétaire de la communauté, les membres ayant la permission Gérer les apps, ou les Bot admins choisis dans les paramètres du bot.",
     unknownCommand: (prefix: string) => `Commande inconnue. Tapez \`${prefix} help\`.`,
     missingUrl: (prefix: string) => `Utilisation : \`${prefix} setup https://relais.exemple.com [clé-du-relais]\``,
     invalidUrl: "L'URL du relais doit commencer par https:// (http:// n'est accepté que pour localhost).",
