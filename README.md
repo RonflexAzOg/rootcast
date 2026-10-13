@@ -90,6 +90,8 @@ Several channels can be connected, each with its own webhook: for example one pe
 
 Every Coolify webhook event is supported, with a dedicated layout for: deployments (success, failure, PR previews), application stopped, restart limit, container stopped/restarted, database and storage backups (success, failure, S3 warning, missing), scheduled tasks, Docker cleanup, server reachable/unreachable, high disk usage, OS updates, Traefik outdated, SSL renewal, API token expiry. Events added by future Coolify versions are shown with their generic message.
 
+Notifications link to the app and to Coolify when those use an HTTPS domain. Links on a bare IP or plain HTTP (like `http://203.0.113.10:8000`) are left out, because Root cannot post them. To get links, set an HTTPS domain in Coolify under **Settings → Instance's Domain**.
+
 ## Relay configuration
 
 All settings are optional environment variables.

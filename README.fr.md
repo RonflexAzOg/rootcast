@@ -91,6 +91,8 @@ Plusieurs salons peuvent être connectés, chacun avec son webhook : par exemple
 
 Tous les événements webhook de Coolify sont pris en charge, avec une mise en forme dédiée pour : déploiements (réussite, échec, previews de PR), application arrêtée, limite de redémarrages, conteneur arrêté ou redémarré, sauvegardes de bases et de stockage (réussite, échec, alerte S3, manquante), tâches planifiées, nettoyage Docker, serveur joignable ou injoignable, disque plein, mises à jour système, Traefik obsolète, renouvellement SSL, expiration de token API. Les événements ajoutés par les futures versions de Coolify s'affichent avec leur message générique.
 
+Les notifications contiennent un lien vers l'application et vers Coolify quand ils utilisent un domaine en HTTPS. Les liens sur une IP brute ou en HTTP simple (comme `http://203.0.113.10:8000`) sont omis, car Root ne peut pas les publier. Pour avoir les liens, renseignez un domaine HTTPS dans Coolify, dans **Settings → Instance's Domain**.
+
 ## Configuration du relais
 
 Toutes les variables d'environnement sont optionnelles. Le tableau complet se trouve dans le [README anglais](README.md#relay-configuration). Les plus utiles :

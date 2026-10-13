@@ -1,3 +1,4 @@
+import { isIP } from "node:net";
 import { EVENT_TITLES, label, type Lang } from "./i18n";
 
 /** Root messages are kept well below any platform limit. */
@@ -63,12 +64,21 @@ function block(value: string): string {
   return "```\n" + text + "\n```";
 }
 
+/**
+ * Returns the URL only if Root can post it.
+ * Root fails to send messages containing http:// URLs on a bare IP and port
+ * (e.g. http://203.0.113.10:8000/), even for human members, so only HTTPS URLs
+ * on a domain name on the default port are kept.
+ */
 function safeUrl(value: unknown): string | undefined {
   const raw = str(value);
   if (!raw) return undefined;
   try {
     const url = new URL(raw.includes("://") ? raw : `https://${raw}`);
-    if (url.protocol !== "https:" && url.protocol !== "http:") return undefined;
+    if (url.protocol !== "https:") return undefined;
+    if (url.port !== "") return undefined;
+    const host = url.hostname.replace(/^\[|\]$/g, "");
+    if (isIP(host) !== 0 || !host.includes(".")) return undefined;
     return url.toString();
   } catch {
     return undefined;

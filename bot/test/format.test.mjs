@@ -16,6 +16,15 @@ describe("formatEvent", () => {
     assert.match(fr, /Projet : demo \/ production/);
   });
 
+  test("drops links Root cannot post (http, bare IP, custom port)", () => {
+    for (const url of ["http://51.15.213.180:8000/", "https://51.15.213.180/", "https://coolify.example.com:8000/", "http://coolify.example.com/"]) {
+      const text = formatEvent({ success: true, event: "test", message: "hi", url }, "en");
+      assert.doesNotMatch(text, /Open in Coolify/, url);
+    }
+    const ok = formatEvent({ success: true, event: "test", message: "hi", url: "https://coolify.example.com" }, "en");
+    assert.match(ok, /Open in Coolify: https:\/\/coolify\.example\.com\//);
+  });
+
   test("links can be disabled (fallback when Root rejects a message)", () => {
     const text = formatEvent(SAMPLE_EVENT, "en", { links: false });
     assert.doesNotMatch(text, /https?:\/\//);
